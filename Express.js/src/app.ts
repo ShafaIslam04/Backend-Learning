@@ -1,6 +1,7 @@
 import express, { type Request, type Response } from "express";
 import { pool } from "./db";
 import { useRoute } from "./modules/user/user.route";
+import { profileRoute } from "./modules/profile/profile.route";
 
 const app = express();
 app.use(express.json());
@@ -14,5 +15,6 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 app.use("/api/user", useRoute);
+app.use("/api/profile",profileRoute)
 
 export default app;
